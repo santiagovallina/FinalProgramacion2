@@ -35,4 +35,8 @@ public interface Gestionable<T>{
     void guardarEnCSV(String path);
     
     List<Vehiculo> cargarDesdeCSV(String path);
+    
+    void guardarEnJSON(String path);
+    
+    void cargarDesdeJSON(String path);
 }

@@ -1,5 +1,6 @@
 package Model;
 
+import com.google.gson.JsonObject;
 import java.io.Serializable;
 import java.time.LocalDate;
 import service.CSVSerializable;
@@ -82,8 +83,7 @@ public abstract class Vehiculo implements Comparable<Vehiculo>, CSVSerializable,
                     Color.valueOf(values[4]), // color
                     Double.parseDouble(values[5]) // precio
                 );
-                
-
+               
             case "MOTO":
                 return new Moto(
                     values[1],
@@ -105,6 +105,49 @@ public abstract class Vehiculo implements Comparable<Vehiculo>, CSVSerializable,
             default:
                 throw new IllegalArgumentException("Tipo de vehículo desconocido: " + tipo);
         }
-}
+    }
+    
+    public static Vehiculo fromJSON(JsonObject json) {
+        if (!json.has("tipo")) {
+            throw new IllegalArgumentException("El JSON no contiene campo 'tipo': " + json);
+        }
+        String tipo = json.get("tipo").getAsString();
+
+        switch (tipo.toUpperCase()) {
+            case "AUTO":
+                return new Auto(
+                    json.get("patente").getAsString(),
+                    json.get("modelo").getAsInt(),
+                    json.get("marca").getAsString(),
+                    Color.valueOf(json.get("color").getAsString().toUpperCase()),
+                    json.get("precio").getAsDouble()
+                );
+
+            case "MOTO":
+                return new Moto(
+                    json.get("patente").getAsString(),
+                    json.get("modelo").getAsInt(),
+                    json.get("marca").getAsString(),
+                    Color.valueOf(json.get("color").getAsString().toUpperCase()),
+                    json.get("precio").getAsDouble()
+                );
+
+            case "CAMION":
+                return new Camion(
+                    json.get("patente").getAsString(),
+                    json.get("modelo").getAsInt(),
+                    json.get("marca").getAsString(),
+                    Color.valueOf(json.get("color").getAsString().toUpperCase()),
+                    json.get("precio").getAsDouble()
+                );
+
+            default:
+                throw new IllegalArgumentException("Tipo de vehículo desconocido: " + tipo);
+        }
+    }
+
+ 
+    
+
  
 }

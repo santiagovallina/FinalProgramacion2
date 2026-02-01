@@ -81,6 +81,13 @@ public class Test {
         }
         System.out.println("\nEventos cargados desde archivo CSV:");
         gestorCSV.leer();
+        
+        // Guardar y cargar en JSON
+        gestor.guardarEnJSON(AppConfig.PATH_JSON);
+        GestorVehiculos<Vehiculo> gestorJSON = new GestorVehiculos<>();
+        gestorJSON.cargarDesdeJSON(AppConfig.PATH_JSON);
+        System.out.println("\nVehículos cargados desde archivo JSON:");
+        gestorJSON.leer();
 
     }
     

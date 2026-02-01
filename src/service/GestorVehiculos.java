@@ -1,6 +1,14 @@
 package service;
 
 import Model.Vehiculo;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,6 +24,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 import service.CSVSerializable;
 
@@ -186,7 +195,6 @@ public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implemen
                 if(linea.endsWith("\n")){
                     linea = linea.substring(0, linea.length() -1);
                 }
-                String[] values = linea.split(",");
                 toReturn.add(Vehiculo.fromCSV(linea));
             }
         } catch (IOException ex){
@@ -196,6 +204,50 @@ public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implemen
         }
     
     
+    @Override
+    public void guardarEnJSON(String path) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
+            JsonArray array = new JsonArray();
+            for (T e : vehiculos) {
+                JsonObject obj = new JsonObject();
+                obj.addProperty("tipo", e.getClass().getSimpleName());
+                JsonElement elem = gson.toJsonTree(e);
+                for (Map.Entry<String, JsonElement> entry : elem.getAsJsonObject().entrySet()) {
+                    obj.add(entry.getKey(), entry.getValue());
+                }
+                array.add(obj);
+            }
+            gson.toJson(array, bw);
+            System.out.println("Vehículos guardados correctamente en JSON: " + path);
+        } catch (IOException ex) {
+            System.out.println("Error al guardar en JSON: " + ex.getMessage());
+        }
+    }
+
+    
+    @Override
+    public void cargarDesdeJSON(String path) {
+        try (FileReader reader = new FileReader(path)) {
+            JsonArray array = JsonParser.parseReader(reader).getAsJsonArray();
+            vehiculos.clear();
+            for (JsonElement elem : array) {
+                JsonObject obj = elem.getAsJsonObject();
+                Vehiculo v = Vehiculo.fromJSON(obj); // acá sí tiene "tipo"
+                vehiculos.add((T) v);
+            }
+            System.out.println("Vehículos cargados correctamente desde JSON.");
+        } catch (IOException ex) {
+            System.out.println("Error al cargar desde JSON: " + ex.getMessage());
+        }
+    }
+
+
+
+
+
+
+
 
     
 }

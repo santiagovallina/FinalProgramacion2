@@ -1,0 +1,52 @@
+[
+  {
+    "tipo": "Auto",
+    "puertas": 5,
+    "motor": 1.6,
+    "patente": "ZAE321",
+    "modelo": 2020,
+    "marca": "Chevrolet",
+    "color": "AZUL",
+    "precio": 6600000.000000001
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 5,
+    "motor": 1.6,
+    "patente": "ABC123",
+    "modelo": 2020,
+    "marca": "Toyota",
+    "color": "ROJO",
+    "precio": 5500000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 3,
+    "motor": 2.0,
+    "patente": "DEF456",
+    "modelo": 2019,
+    "marca": "Ford",
+    "color": "AZUL",
+    "precio": 4950000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 5,
+    "motor": 1.4,
+    "patente": "GHI789",
+    "modelo": 2021,
+    "marca": "Fiat",
+    "color": "VERDE",
+    "precio": 4180000.0000000005
+  },
+  {
+    "tipo": "Moto",
+    "cilindrada": 500,
+    "peso": 200.0,
+    "patente": "RTE123",
+    "modelo": 2021,
+    "marca": "Honda",
+    "color": "VERDE",
+    "precio": 1980000.0000000002
+  }
+]
