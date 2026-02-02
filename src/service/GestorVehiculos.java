@@ -1,5 +1,8 @@
 package service;
 
+import Model.Auto;
+import Model.Camion;
+import Model.Moto;
 import Model.Vehiculo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -241,12 +244,45 @@ public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implemen
             System.out.println("Error al cargar desde JSON: " + ex.getMessage());
         }
     }
+    
+    @Override
+    public void exportarPorTipoATXT(String path, String tipo) {
+    File archivo = new File(path);
+    try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+        // Encabezado descriptivo
+        bw.write("Listado de Vehículos filtrados\n");
+        bw.write("Tipo seleccionado: " + tipo + "\n");
+        bw.write("====================================\n\n");
 
+        for (T v : vehiculos) {
+            // Filtrar por tipo
+            if (v.getClass().getSimpleName().equalsIgnoreCase(tipo)) {
+                Vehiculo vehiculo = (Vehiculo) v;
+                bw.write("Tipo: " + v.getClass().getSimpleName() + "\n");
+                bw.write("Patente: " + vehiculo.getPatente() + "\n");
+                bw.write("Modelo: " + vehiculo.getModelo() + "\n");
+                bw.write("Marca: " + vehiculo.getMarca() + "\n");
+                bw.write("Color: " + vehiculo.getColor() + "\n");
+                bw.write("Precio: " + vehiculo.getPrecio() + "\n");
 
+                if (v instanceof Auto a) {
+                    bw.write("Puertas: " + a.getPuertas() + "\n");
+                    bw.write("Motor: " + a.getMotor() + "\n");
+                } else if (v instanceof Moto m) {
+                    bw.write("Cilindrada: " + m.getCilindrada() + "\n");
+                    bw.write("Peso: " + m.getPeso() + "\n");
+                } else if (v instanceof Camion c) {
+                    bw.write("Cantidad de ejes: " + c.getCantidadEjes() + "\n");
+                }
 
-
-
-
+                bw.write("------------------------------\n");
+            }
+        }
+        System.out.println("Listado filtrado exportado correctamente a TXT: " + path);
+    } catch (IOException ex) {
+        System.out.println("Error al exportar a TXT: " + ex.getMessage());
+    }
+}
 
 
     

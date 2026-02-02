@@ -1,0 +1,13 @@
+Listado de Vehículos filtrados
+Tipo seleccionado: Moto
+====================================
+
+Tipo: Moto
+Patente: RTE123
+Modelo: 2021
+Marca: Honda
+Color: VERDE
+Precio: 1980000.0000000002
+Cilindrada: 500
+Peso: 200.0
+------------------------------

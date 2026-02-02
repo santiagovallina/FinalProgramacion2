@@ -30,8 +30,21 @@ public class Camion extends Vehiculo implements Cargable, CSVSerializable, Seria
     public String toString() {
         return super.toString() + "Camion{" + "cantidadEjes=" + cantidadEjes + ", alto=" + alto + ", largo=" + largo + '}';
     }
+
+    public int getCantidadEjes() {
+        return cantidadEjes;
+    }
+
+    public int getAlto() {
+        return alto;
+    }
+
+    public int getLargo() {
+        return largo;
+    }
     
- 
+    
+    
     @Override
     public void encender(){
         System.out.println("Encendiendo el camion");

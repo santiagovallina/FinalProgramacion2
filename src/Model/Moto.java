@@ -27,6 +27,15 @@ public class Moto extends Vehiculo implements CSVSerializable, Serializable{
     public String toString() {
         return super.toString() + "Moto{" + "cilindrada=" + cilindrada + ", peso=" + peso + '}';
     }
+
+    public int getCilindrada() {
+        return cilindrada;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+    
     
     
     @Override

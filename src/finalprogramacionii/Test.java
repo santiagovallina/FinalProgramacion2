@@ -88,6 +88,9 @@ public class Test {
         gestorJSON.cargarDesdeJSON(AppConfig.PATH_JSON);
         System.out.println("\nVehículos cargados desde archivo JSON:");
         gestorJSON.leer();
+        
+        // Exportar a un archivo txt una lista filtrada segun tipo de vehiculo
+        gestor.exportarPorTipoATXT(AppConfig.PATH_TXT, "Moto");
 
     }
     

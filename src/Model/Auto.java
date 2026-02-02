@@ -28,7 +28,14 @@ public class Auto extends Vehiculo implements Cargable, CSVSerializable, Seriali
     public String toString() {
         return super.toString() + "Auto{" + "puertas=" + puertas + ", motor=" + motor + '}';
     }
-    
+
+    public int getPuertas() {
+        return puertas;
+    }
+
+    public double getMotor() {
+        return motor;
+    }
     
     
     @Override

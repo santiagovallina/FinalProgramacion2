@@ -43,9 +43,23 @@ public abstract class Vehiculo implements Comparable<Vehiculo>, CSVSerializable,
         return patente;
     }
 
+    public int getModelo() {
+        return modelo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
     public double getPrecio() {
         return precio;
     }
+
+    
 
     public void setPrecio(double precio) {
         this.precio = precio;
