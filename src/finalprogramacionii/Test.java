@@ -22,7 +22,6 @@ public class Test {
         Vehiculo v2 = new Auto("DEF456", 2019, "Ford", Color.AZUL, 4500000, 3, 2.0);
         Vehiculo v3 = new Auto("GHI789", 2021, "Fiat", Color.BLANCO, 3800000, 5, 1.4);
         Vehiculo v4 = new Auto("GHI789", 2021, "Fiat", Color.VERDE, 3800000, 5, 1.4);
-        
         Vehiculo m1 = new Moto("RTE123", 2021, "Honda", Color.VERDE, 1800000, 500, 200);
         
         gestor.agregar(v);

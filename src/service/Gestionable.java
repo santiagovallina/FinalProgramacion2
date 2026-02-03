@@ -38,7 +38,7 @@ public interface Gestionable<T>{
     
     void guardarEnJSON(String path);
     
-    void cargarDesdeJSON(String path);
+    List<T> cargarDesdeJSON(String path);
     
     void exportarPorTipoATXT(String path, String tipo);
 }

@@ -10,6 +10,10 @@
 <project name="FinalProgramacionII" default="default" basedir=".">
     <description>Builds, tests, and runs the project FinalProgramacionII.</description>
     <import file="nbproject/build-impl.xml"/>
+
+
+	
+
     <!--
 
     There exist several targets which are by default empty and which can be 
@@ -70,4 +74,15 @@
     nbproject/build-impl.xml file. 
 
     -->
+
+    <target name="-pre-compile">
+        <property name="javafx.lib.path" value="C:\Users\HP\Desktop\javafx-sdk-21.0.10\lib"/>
+        <property name="javac.compilerargs" value="--module-path ${javafx.lib.path} --add-modules javafx.controls,javafx.fxml"/>
+    </target>
+
+    <target name="-post-jar">
+        <property name="javafx.lib.path" value="C:\Users\HP\Desktop\javafx-sdk-21.0.10\lib"/>
+        <property name="run.jvmargs" value="--module-path ${javafx.lib.path} --add-modules javafx.controls,javafx.fxml"/>
+    </target>
+
 </project>

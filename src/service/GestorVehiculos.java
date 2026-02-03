@@ -35,6 +35,10 @@ import service.CSVSerializable;
 public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implements Gestionable<T>{
     
     private List<T> vehiculos = new ArrayList<>();
+    
+    public List<T> getLista() { 
+        return vehiculos; 
+    }
 
     @Override
     public void agregar(T item) {
@@ -230,19 +234,21 @@ public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implemen
 
     
     @Override
-    public void cargarDesdeJSON(String path) {
+    public List<T> cargarDesdeJSON(String path) {
+        List<T> toReturn = new ArrayList<>();
         try (FileReader reader = new FileReader(path)) {
             JsonArray array = JsonParser.parseReader(reader).getAsJsonArray();
             vehiculos.clear();
             for (JsonElement elem : array) {
                 JsonObject obj = elem.getAsJsonObject();
-                Vehiculo v = Vehiculo.fromJSON(obj); // acá sí tiene "tipo"
-                vehiculos.add((T) v);
+                Vehiculo v = Vehiculo.fromJSON(obj);
+                toReturn.add((T) v);
             }
             System.out.println("Vehículos cargados correctamente desde JSON.");
         } catch (IOException ex) {
             System.out.println("Error al cargar desde JSON: " + ex.getMessage());
         }
+        return toReturn;
     }
     
     @Override
@@ -252,7 +258,7 @@ public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implemen
         // Encabezado descriptivo
         bw.write("Listado de Vehículos filtrados\n");
         bw.write("Tipo seleccionado: " + tipo + "\n");
-        bw.write("====================================\n\n");
+        bw.write("====================================\n");
 
         for (T v : vehiculos) {
             // Filtrar por tipo

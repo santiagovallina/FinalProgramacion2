@@ -1,7 +1,6 @@
 Listado de Vehículos filtrados
 Tipo seleccionado: Moto
 ====================================
-
 Tipo: Moto
 Patente: RTE123
 Modelo: 2021
