@@ -6,6 +6,8 @@ import Model.Camion;
 import Model.Color;
 import Model.Moto;
 import Model.Vehiculo;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,6 +19,8 @@ import javafx.geometry.Pos;
 import service.GestorVehiculos;
 
 public class MainApp extends Application {
+    
+    List inicializarDatosEjemplo = new ArrayList<>();
     
     @Override
     public void start(Stage stage) {
@@ -31,8 +35,6 @@ public class MainApp extends Application {
         BienvenidaView bienvenida = new BienvenidaView(root, gestor);
         root.setCenter(bienvenida.getView());
         
-        
-        
         Vehiculo v = new Auto("ZAE321", 2020, "Chevrolet", Color.AZUL, 6000000);
         Vehiculo v1 = new Auto("ABC123", 2020, "Toyota", Color.ROJO, 5000000);
         Vehiculo v2 = new Auto("DEF456", 2019, "Ford", Color.AZUL, 4500000);
@@ -40,12 +42,30 @@ public class MainApp extends Application {
         Vehiculo c1 = new Camion("PLD789", 2021, "Scania", Color.VERDE, 7800000);
         Vehiculo m1 = new Moto("RTE123", 2021, "Honda", Color.VERDE, 1800000);
         
-        gestor.agregar(v);
-        gestor.agregar(v1);
-        gestor.agregar(v2);
-        gestor.agregar(v3);
-        gestor.agregar(m1);
-        gestor.agregar(c1);
+        inicializarDatosEjemplo.add(v);
+        inicializarDatosEjemplo.add(v1);
+        inicializarDatosEjemplo.add(v2);
+        inicializarDatosEjemplo.add(v3);
+        inicializarDatosEjemplo.add(c1);
+        inicializarDatosEjemplo.add(m1);
+        
+        try {
+            List<Vehiculo> vehiculosGuardados = gestor.cargarDesdeJSON(PATH_JSON);
+
+            if (vehiculosGuardados != null && !vehiculosGuardados.isEmpty()) {
+                for (Vehiculo ve : vehiculosGuardados) {
+                    gestor.agregar(ve);
+                    System.out.println("Datos cargados: " + vehiculosGuardados.size() + " vehículos");
+                }
+            }
+            else {
+                for ( Object ve : inicializarDatosEjemplo){
+                    gestor.agregar((Vehiculo) ve);
+                }
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
         
         
         

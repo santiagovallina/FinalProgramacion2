@@ -6,6 +6,7 @@ import Model.Camion;
 import Model.Color;
 import Model.Moto;
 import Model.Vehiculo;
+import View.TablaVehiculosView;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -47,9 +48,9 @@ public class FormularioAgregarView {
         
         Button btnAgregar = new Button("Agregar");
         btnAgregar.setOnAction(e -> {  
-            String patente = txtPatente.getText();
+            String patente = txtPatente.getText().toUpperCase();
             int modelo = Integer.parseInt(txtModelo.getText());
-            String marca = txtMarca.getText();
+            String marca = txtMarca.getText().toUpperCase();
             Color color = cmbColor.getValue();
             double precio = Double.parseDouble(txtPrecio.getText());
             

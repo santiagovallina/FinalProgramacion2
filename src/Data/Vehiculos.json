@@ -1,12 +1,95 @@
 [
   {
-    "tipo": "Moto",
-    "cilindrada": 500,
-    "peso": 200.0,
-    "patente": "a",
-    "modelo": 2,
-    "marca": "a",
+    "tipo": "Auto",
+    "puertas": 0,
+    "motor": 0.0,
+    "patente": "ZAE321",
+    "modelo": 2020,
+    "marca": "Chevrolet",
+    "color": "AZUL",
+    "precio": 6000000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 0,
+    "motor": 0.0,
+    "patente": "ABC123",
+    "modelo": 2020,
+    "marca": "Toyota",
+    "color": "ROJO",
+    "precio": 5000000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 0,
+    "motor": 0.0,
+    "patente": "DEF456",
+    "modelo": 2019,
+    "marca": "Ford",
+    "color": "AZUL",
+    "precio": 4500000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 0,
+    "motor": 0.0,
+    "patente": "GHI789",
+    "modelo": 2021,
+    "marca": "Fiat",
     "color": "BLANCO",
-    "precio": 23.0
+    "precio": 3800000.0
+  },
+  {
+    "tipo": "Camion",
+    "cantidadEjes": 0,
+    "alto": 0,
+    "largo": 0,
+    "patente": "PLD789",
+    "modelo": 2021,
+    "marca": "Scania",
+    "color": "VERDE",
+    "precio": 7800000.0
+  },
+  {
+    "tipo": "Moto",
+    "cilindrada": 0,
+    "peso": 0.0,
+    "patente": "RTE123",
+    "modelo": 2021,
+    "marca": "Honda",
+    "color": "VERDE",
+    "precio": 1800000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 0,
+    "motor": 0.0,
+    "patente": "AA234SA",
+    "modelo": 2019,
+    "marca": "PEUGEOT",
+    "color": "BLANCO",
+    "precio": 22000.0
+  },
+  {
+    "tipo": "Camion",
+    "cantidadEjes": 0,
+    "alto": 0,
+    "largo": 0,
+    "patente": "IVE200",
+    "modelo": 2001,
+    "marca": "MERCEDES BENZ",
+    "color": "NEGRO",
+    "precio": 25000.0
+  },
+  {
+    "tipo": "Camion",
+    "cantidadEjes": 10000,
+    "alto": 0,
+    "largo": 0,
+    "patente": "AF456TR",
+    "modelo": 2020,
+    "marca": "CHEVROLET",
+    "color": "BLANCO",
+    "precio": 20000.0
   }
 ]

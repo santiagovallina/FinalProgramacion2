@@ -17,11 +17,8 @@ public class BienvenidaView {
         Label lblBienvenida = new Label("Bienvenido al sistema de gestión de vehículos");
         
         Button btnVerLista = new Button("Ver lista de vehículos");
-        Button btnAgregar = new Button("Agregar vehículo");
-        Button btnEliminar = new Button("Eliminar por patente");
-        Button btnBuscar = new Button("Buscar por patente");
 
-        view = new VBox(20, lblBienvenida, btnVerLista, btnAgregar, btnEliminar, btnBuscar);
+        view = new VBox(20, lblBienvenida, btnVerLista);
         view.setAlignment(Pos.CENTER);
 
 

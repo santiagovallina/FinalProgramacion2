@@ -17,6 +17,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import service.GestorVehiculos;
 import finalprogramacionii.Test;
+import java.util.Optional;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 
 public class TablaVehiculosView {
     private VBox view;
@@ -52,13 +56,13 @@ public class TablaVehiculosView {
         table.getColumns().addAll(colPatente, colModelo, colMarca, colColor, colPrecio);
         
         
-        data.setAll(gestor.cargarDesdeJSON(PATH_JSON));
+        data.setAll(gestor.getLista());
         table.setItems(data);
         
         Button btnAgregar = new Button("Agregar vehículo");
         Button btnEliminar = new Button("Eliminar seleccionado"); 
         Button btnActualizar = new Button("Actualizar seleccionado"); 
-        Button btnLeer = new Button("Leer seleccionado");
+        Button btnLeer = new Button("Ver seleccionado");
         
         Button btnVolver = new Button("← Volver");
         btnVolver.setOnAction(e -> { 
@@ -72,11 +76,97 @@ public class TablaVehiculosView {
             root.setCenter(form.getView()); 
         });
         
+        
+        btnEliminar.setOnAction(e -> {
+            Vehiculo seleccionado = table.getSelectionModel().getSelectedItem();
+            
+            if (seleccionado != null) {
+                Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmacion.setTitle("Confirmar eliminación");
+                confirmacion.setHeaderText("¿Está seguro que desea eliminar este vehículo?");
+                confirmacion.setContentText(
+                    "Patente: " + seleccionado.getPatente() + "\n" +
+                    "Marca: " + seleccionado.getMarca() + "\n" +
+                    "Modelo: " + seleccionado.getModelo()
+                );
+                
+                Optional<ButtonType> resultado = confirmacion.showAndWait();
+                
+                if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+                    gestor.eliminarPorPatente(seleccionado.getPatente());
+                    gestor.guardarEnJSON(PATH_JSON);
+                    data.setAll(gestor.getLista());
+                }
+                
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Selección requerida");
+                alert.setHeaderText("No hay vehículo seleccionado");
+                alert.setContentText("Seleccione un vehículo de la tabla antes de eliminar");
+                alert.showAndWait();
+            }
+        });
+        
+        btnLeer.setOnAction(e -> {
+            Vehiculo seleccionado = table.getSelectionModel().getSelectedItem();
+            
+            if (seleccionado != null) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Detalle del vehículo");
+                alert.setHeaderText("Información completa");
+                
+                // Mostrar todos los detalles
+                String detalles = seleccionado.toString();
+                
+                // O si quieres un formato más bonito:
+                String detallesFormateados = String.format(
+                    "Tipo: %s\n" +
+                    "Patente: %s\n" +
+                    "Modelo: %d\n" +
+                    "Marca: %s\n" +
+                    "Color: %s\n" +
+                    "Precio: $%.2f",
+                    seleccionado.getClass().getSimpleName(),
+                    seleccionado.getPatente(),
+                    seleccionado.getModelo(),
+                    seleccionado.getMarca(),
+                    seleccionado.getColor(),
+                    seleccionado.getPrecio()
+                );
+                
+                alert.setContentText(detallesFormateados);
+                alert.showAndWait();
+                
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Selección requerida");
+                alert.setHeaderText("No hay vehículo seleccionado");
+                alert.setContentText("Por favor, seleccione un vehículo de la tabla");
+                alert.showAndWait();
+            }
+        });
+        
+        btnActualizar.setOnAction(e -> {
+            Vehiculo seleccionado = table.getSelectionModel().getSelectedItem();
+
+            if (seleccionado != null) {
+                FormularioActualizarView formActualizar = new FormularioActualizarView(root, gestor, seleccionado);
+                root.setCenter(formActualizar.getView()); // root es tu BorderPane principal
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Selección requerida");
+                alert.setHeaderText("No hay vehículo seleccionado");
+                alert.setContentText("Por favor, seleccione un vehículo de la tabla");
+                alert.showAndWait();
+            }
+        });
+
+        
         VBox botonesBox = new VBox(10, btnAgregar, btnEliminar, btnActualizar, btnLeer, btnVolver);
         
         view = new VBox(10, table, botonesBox);
         view.setAlignment(Pos.CENTER);
-       
+
     }
 
     public VBox getView() {
