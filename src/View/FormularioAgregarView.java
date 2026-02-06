@@ -29,9 +29,9 @@ public class FormularioAgregarView {
         TextField txtPatente = new TextField();
         txtPatente.setPromptText("Patente");
 
-        Label lblModelo = new Label("Modelo");
+        Label lblModelo = new Label("Año");
         TextField txtModelo = new TextField();
-        txtModelo.setPromptText("Modelo");
+        txtModelo.setPromptText("Año");
         
         Label lblMarca = new Label("Marca");
         TextField txtMarca = new TextField();

@@ -23,7 +23,11 @@ public abstract class Vehiculo implements Comparable<Vehiculo>, CSVSerializable,
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "patente=" + patente + ", modelo=" + modelo + ", marca=" + marca + ", color=" + color + ", precio=" + precio + '}';
+        return "Vehiculo{" + this.getTipo() + " - "  + "patente=" + patente + ", modelo=" + modelo + ", marca=" + marca + ", color=" + color + ", precio=" + precio + '}';
+    }
+    
+    public String getTipo() { 
+        return getClass().getSimpleName(); 
     }
     
     

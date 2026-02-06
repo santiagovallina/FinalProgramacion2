@@ -64,7 +64,4 @@ public class Auto extends Vehiculo implements Cargable, CSVSerializable, Seriali
         return "patente,modelo,marca,color,precio, puertas, motor";
     }
 
-    
-    
-    
 }

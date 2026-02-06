@@ -25,7 +25,7 @@
     "motor": 0.0,
     "patente": "DEF456",
     "modelo": 2019,
-    "marca": "Ford",
+    "marca": "FORD",
     "color": "AZUL",
     "precio": 4500000.0
   },
@@ -35,7 +35,7 @@
     "motor": 0.0,
     "patente": "GHI789",
     "modelo": 2021,
-    "marca": "Fiat",
+    "marca": "FIAT",
     "color": "BLANCO",
     "precio": 3800000.0
   },
@@ -46,19 +46,9 @@
     "largo": 0,
     "patente": "PLD789",
     "modelo": 2021,
-    "marca": "Scania",
+    "marca": "SCANIA",
     "color": "VERDE",
     "precio": 7800000.0
-  },
-  {
-    "tipo": "Moto",
-    "cilindrada": 0,
-    "peso": 0.0,
-    "patente": "RTE123",
-    "modelo": 2021,
-    "marca": "Honda",
-    "color": "VERDE",
-    "precio": 1800000.0
   },
   {
     "tipo": "Auto",
@@ -80,16 +70,5 @@
     "marca": "MERCEDES BENZ",
     "color": "NEGRO",
     "precio": 25000.0
-  },
-  {
-    "tipo": "Camion",
-    "cantidadEjes": 10000,
-    "alto": 0,
-    "largo": 0,
-    "patente": "AF456TR",
-    "modelo": 2020,
-    "marca": "CHEVROLET",
-    "color": "BLANCO",
-    "precio": 20000.0
   }
 ]
