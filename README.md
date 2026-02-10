@@ -2,7 +2,7 @@
 
 ### Sobre mi
 Soy Santiago Julián Vallina, tengo 25 años y vivo en Banfield.
-#####Datos de Alumno: 
+##### Datos de Alumno: 
 - DNI: 42.375.241
 - Legajo: 115717
 
