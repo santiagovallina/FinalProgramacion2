@@ -29,6 +29,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 import service.CSVSerializable;
 
@@ -146,7 +147,7 @@ public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implemen
     }
     
     @Override
-    public void aplicarCambios(java.util.function.Consumer<T> consumer) {
+    public void aplicarCambios(Consumer<T> consumer) {
         for (T vehiculo : vehiculos) {
             consumer.accept(vehiculo);
         }

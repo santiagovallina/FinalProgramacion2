@@ -81,16 +81,12 @@ public class PanelFiltrado {
         System.out.println("Predicate creado: Buscar patente '" + patenteBuscada + "'");
         
         List<Vehiculo> resultados = gestor.filtrar((Predicate) predicado);
-        System.out.println("Resultados encontrados: " + resultados.size());
         
         data.setAll(resultados);
         
         if (resultados.isEmpty()) {
             lblResultado.setText("No se encontró ningún vehículo con la patente '" + patenteBuscada + "'");
             lblResultado.setStyle("-fx-text-fill: #f44336; -fx-font-weight: bold; -fx-font-size: 12px;");
-        } else {
-            lblResultado.setText("Se encontró " + resultados.size() + " vehículo(s) con la patente '" + patenteBuscada + "'");
-            
         }
     }
     

@@ -48,7 +48,7 @@ public class Test {
         
         //ordenar por precio de menor a mayor(usando comparator)
         Comparator<Vehiculo> ordenarPorPrecio2 = (ve1, ve2) -> Double.compare(ve1.getPrecio(), ve2.getPrecio());
-        gestor.ordenar(ordenarPorPrecio);
+        gestor.ordenar(ordenarPorPrecio2);
         gestor.leer();
         
         
