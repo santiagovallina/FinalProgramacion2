@@ -1,4 +1,4 @@
-package View.Botones;
+package View.Componentes;
 
 import static AppConfig.AppConfig.PATH_JSON;
 import Model.Vehiculo;

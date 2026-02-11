@@ -163,9 +163,5 @@ public abstract class Vehiculo implements Comparable<Vehiculo>, CSVSerializable,
                 throw new IllegalArgumentException("Tipo de vehículo desconocido: " + tipo);
         }
     }
-
- 
-    
-
  
 }

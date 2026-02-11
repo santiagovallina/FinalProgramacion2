@@ -40,7 +40,6 @@ public interface Gestionable<T>{
     
     List<T> cargarDesdeJSON(String path);
     
-    void exportarPorTipoATXT(String path, String tipo);
+    void exportarPorTipoATXT(List<? extends Vehiculo> listaVehiculos,String path, String tipo);
     
-    void guardarTodo();
 }

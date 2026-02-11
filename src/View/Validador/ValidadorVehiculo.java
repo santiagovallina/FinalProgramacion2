@@ -1,4 +1,4 @@
-package View.Botones;
+package View.Validador;
 
 import Model.Color;
 import Model.Vehiculo;

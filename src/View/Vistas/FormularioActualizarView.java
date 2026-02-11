@@ -1,8 +1,8 @@
-package View;
+package View.Vistas;
 
 import static AppConfig.AppConfig.PATH_JSON;
 import Model.*;
-import View.Botones.ValidadorVehiculo;
+import View.Validador.ValidadorVehiculo;
 import java.text.DecimalFormat;
 import service.GestorVehiculos;
 import javafx.geometry.Insets;
@@ -43,7 +43,6 @@ public class FormularioActualizarView {
         
         TextField txtModelo = new TextField(String.valueOf(vehiculo.getModelo()));
         
-        // ComboBox para color en lugar de TextField
         ComboBox<Color> cmbColor = new ComboBox<>();
         cmbColor.getItems().addAll(Color.values());
         cmbColor.setValue(vehiculo.getColor());

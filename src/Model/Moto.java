@@ -3,15 +3,15 @@ package Model;
 import java.io.Serializable;
 import service.CSVSerializable;
 
-public class Moto extends Vehiculo implements CSVSerializable, Serializable{
+public class Moto extends Vehiculo {
     
     private int cilindrada;
-    private TipoMoto tipo;
+    private TipoMoto tipomoto;
 
-    public Moto(String patente, int modelo, String marca, Color color, double precio,  int cilindrada, TipoMoto tipo) {
+    public Moto(String patente, int modelo, String marca, Color color, double precio,  int cilindrada, TipoMoto tipomoto) {
         super(patente, modelo, marca, color, precio);
         this.cilindrada = cilindrada;
-        this.tipo = tipo;
+        this.tipomoto = tipomoto;
     }
     
     public Moto(String patente, int modelo, String marca,  Color color, double precio, int cilindrada) {
@@ -25,7 +25,7 @@ public class Moto extends Vehiculo implements CSVSerializable, Serializable{
 
     @Override
     public String toString() {
-        return super.toString() + "Moto{" + "cilindrada=" + cilindrada + ", tipo=" + tipo + '}';
+        return super.toString() + "Moto{" + "cilindrada=" + cilindrada + ", tipo=" + tipomoto + '}';
     }
 
     public int getCilindrada() {
@@ -33,7 +33,7 @@ public class Moto extends Vehiculo implements CSVSerializable, Serializable{
     }
 
     public TipoMoto getTipoMoto() {
-        return tipo;
+        return tipomoto;
     }
     
     @Override

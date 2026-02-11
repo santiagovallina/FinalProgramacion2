@@ -1,4 +1,4 @@
-package View;
+package View.Vistas;
 
 import Model.Vehiculo;
 import javafx.geometry.Pos;

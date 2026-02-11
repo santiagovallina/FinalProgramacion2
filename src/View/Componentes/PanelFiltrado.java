@@ -1,7 +1,7 @@
-package View.Botones;
+package View.Componentes;
 
 import Model.Vehiculo;
-import View.TablaVehiculosView;
+import View.Vistas.TablaVehiculosView;
 import service.GestorVehiculos;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

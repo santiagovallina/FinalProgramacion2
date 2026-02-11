@@ -1,4 +1,4 @@
-package View.Botones;
+package View.Componentes;
 
 import AppConfig.AppConfig;
 import Model.Vehiculo;

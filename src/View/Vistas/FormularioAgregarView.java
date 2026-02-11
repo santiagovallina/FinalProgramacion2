@@ -1,4 +1,4 @@
-package View;
+package View.Vistas;
 
 import static AppConfig.AppConfig.PATH_JSON;
 import Model.Auto;
@@ -7,8 +7,7 @@ import Model.Color;
 import Model.Moto;
 import Model.TipoMoto;
 import Model.Vehiculo;
-import View.Botones.ValidadorVehiculo;
-import View.TablaVehiculosView;
+import View.Validador.ValidadorVehiculo;
 import java.text.DecimalFormat;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

@@ -90,7 +90,8 @@ public class Test {
         gestorJSON.leer();
         
         // Exportar a un archivo txt una lista filtrada segun tipo de vehiculo
-        gestor.exportarPorTipoATXT(AppConfig.PATH_TXT, "Auto");
+        List<Vehiculo> autos = gestor.filtrar(ve -> ve instanceof Moto);
+        gestor.exportarPorTipoATXT(autos, AppConfig.PATH_TXT, "Moto");
 
     }
     

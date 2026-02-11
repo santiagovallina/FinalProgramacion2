@@ -3,7 +3,7 @@ package Model;
 import java.io.Serializable;
 import service.CSVSerializable;
 
-public class Auto extends Vehiculo implements Cargable, CSVSerializable, Serializable{
+public class Auto extends Vehiculo implements Cargable{
     
     private int puertas;
     private double motor;

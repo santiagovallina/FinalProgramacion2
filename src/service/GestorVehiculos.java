@@ -258,7 +258,7 @@ public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implemen
     }
     
     @Override
-    public void exportarPorTipoATXT(String path, String tipo) {
+    public void exportarPorTipoATXT(List<? extends Vehiculo> listaVehiculos,String path, String tipo) {
     File archivo = new File(path);
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
     
@@ -282,7 +282,7 @@ public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implemen
                     bw.write("Motor: " + a.getMotor() + "\n");
                 } else if (v instanceof Moto m) {
                     bw.write("Cilindrada: " + m.getCilindrada() + "\n");
-                    bw.write("Peso: " + m.getTipoMoto() + "\n");
+                    bw.write("Tipo: " + m.getTipoMoto() + "\n");
                 } else if (v instanceof Camion c) {
                     bw.write("Cantidad de ejes: " + c.getCantidadEjes() + "\n");
                 }
@@ -296,11 +296,6 @@ public class GestorVehiculos<T extends CSVSerializable & Comparable<T>> implemen
     }
     }
     
-    @Override
-    public void guardarTodo() { 
-        guardarEnJSON(AppConfig.PATH_JSON);
-        guardarEnCSV(AppConfig.PATH_CSV);
-        guardarEnBinario(AppConfig.PATH_SER); 
-    }
+    
     
 }

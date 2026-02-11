@@ -1,4 +1,4 @@
-package View.Botones;
+package View.Componentes;
 
 import Model.Auto;
 import Model.Camion;

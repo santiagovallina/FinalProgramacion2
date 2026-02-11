@@ -1,11 +1,13 @@
-package View;
+package View.Main;
 
 import static AppConfig.AppConfig.PATH_JSON;
 import Model.Auto;
 import Model.Camion;
 import Model.Color;
 import Model.Moto;
+import Model.TipoMoto;
 import Model.Vehiculo;
+import View.Vistas.BienvenidaView;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.application.Application;
@@ -35,12 +37,12 @@ public class MainApp extends Application {
         BienvenidaView bienvenida = new BienvenidaView(root, gestor);
         root.setCenter(bienvenida.getView());
         
-        Vehiculo v = new Auto("ZAE321", 2020, "CHEVROLET", Color.AZUL, 6000000);
-        Vehiculo v1 = new Auto("ABC123", 2020, "TOYOTA", Color.ROJO, 5000000);
+        Vehiculo v = new Auto("ZAE321", 2020, "CHEVROLET", Color.AZUL, 6000000, 3, 1.4);
+        Vehiculo v1 = new Auto("ABC123", 2020, "TOYOTA", Color.ROJO, 5000000, 5, 1.6);
         Vehiculo v2 = new Auto("DEF456", 2019, "FORD", Color.AZUL, 4500000);
         Vehiculo v3 = new Auto("GHI789", 2021, "FIAT", Color.BLANCO, 3800000);
-        Vehiculo c1 = new Camion("PLD789", 2021, "SCANIA", Color.VERDE, 7800000);
-        Vehiculo m1 = new Moto("RTE123", 2021, "HONDA", Color.VERDE, 1800000);
+        Vehiculo c1 = new Camion("PLD789", 2021, "SCANIA", Color.VERDE, 7800000, 2, 2, 5);
+        Vehiculo m1 = new Moto("RTE123", 2021, "HONDA", Color.VERDE, 1800000, 250, TipoMoto.CHOPPER);
         
         inicializarDatosEjemplo.add(v);
         inicializarDatosEjemplo.add(v1);

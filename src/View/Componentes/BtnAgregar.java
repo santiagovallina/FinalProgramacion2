@@ -1,6 +1,6 @@
-package View.Botones;
+package View.Componentes;
 
-import View.FormularioAgregarView;
+import View.Vistas.FormularioAgregarView;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import service.GestorVehiculos;

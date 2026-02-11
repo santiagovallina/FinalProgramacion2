@@ -1,1 +1,73 @@
-[]
+[
+  {
+    "tipo": "Auto",
+    "puertas": 3,
+    "motor": 1.4,
+    "patente": "ZAE321",
+    "modelo": 2020,
+    "marca": "CHEVROLET",
+    "color": "AZUL",
+    "precio": 6000000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 5,
+    "motor": 1.6,
+    "patente": "ABC123",
+    "modelo": 2020,
+    "marca": "TOYOTA",
+    "color": "ROJO",
+    "precio": 5000000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 0,
+    "motor": 0.0,
+    "patente": "DEF456",
+    "modelo": 2019,
+    "marca": "FORD",
+    "color": "AZUL",
+    "precio": 4500000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 0,
+    "motor": 0.0,
+    "patente": "GHI789",
+    "modelo": 2021,
+    "marca": "FIAT",
+    "color": "BLANCO",
+    "precio": 3800000.0
+  },
+  {
+    "tipo": "Camion",
+    "cantidadEjes": 2,
+    "alto": 2,
+    "largo": 5,
+    "patente": "PLD789",
+    "modelo": 2021,
+    "marca": "SCANIA",
+    "color": "VERDE",
+    "precio": 7800000.0
+  },
+  {
+    "tipo": "Moto",
+    "cilindrada": 250,
+    "tipomoto": "CHOPPER",
+    "patente": "RTE123",
+    "modelo": 2021,
+    "marca": "HONDA",
+    "color": "VERDE",
+    "precio": 1800000.0
+  },
+  {
+    "tipo": "Auto",
+    "puertas": 5,
+    "motor": 1.6,
+    "patente": "EGT290",
+    "modelo": 2012,
+    "marca": "AUDI",
+    "color": "ROJO",
+    "precio": 1.5E7
+  }
+]

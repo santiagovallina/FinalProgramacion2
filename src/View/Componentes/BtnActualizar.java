@@ -1,7 +1,7 @@
-package View.Botones;
+package View.Componentes;
 
 import Model.Vehiculo;
-import View.FormularioActualizarView;
+import View.Vistas.FormularioActualizarView;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -24,7 +24,6 @@ public class BtnActualizar extends Button{
         this.table = table;
         this.gestor = gestor;
         
-        // Estilo del botón
         this.setStyle("-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold;");
         
         configurarAccion();
